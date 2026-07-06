@@ -4,9 +4,11 @@ title: Examples
 
 # Examples
 
+## Python
+
 Runnable scripts live in [`examples/`](https://github.com/kardashev-lab/kardashev-py/tree/main/examples) in the source repo.
 
-## Direct ISO fuel mix
+### Direct ISO fuel mix
 
 ```python
 from kardashev import CAISO, ERCOT
@@ -18,7 +20,7 @@ ercot = ERCOT()
 print(ercot.get_fuel_mix().tail())
 ```
 
-## Direct ISO LMP
+### Direct ISO LMP
 
 ```python
 from kardashev import CAISO, ERCOT, MISO
@@ -33,7 +35,7 @@ miso = MISO()
 print(miso.get_lmp(market="RT"))
 ```
 
-## Carbon intensity across all ISOs
+### Carbon intensity across all ISOs
 
 ```python
 from kardashev import Client
@@ -42,7 +44,7 @@ kl = Client()
 print(kl.carbon_latest())
 ```
 
-## LMP map nodes
+### LMP map nodes
 
 ```python
 from kardashev import Client
@@ -52,7 +54,7 @@ nodes = kl.lmp_map(iso="PJM", market="RT")
 print(nodes.head())
 ```
 
-## Interconnection queue
+### Interconnection queue
 
 ```python
 from kardashev import Client
@@ -62,11 +64,56 @@ queue = kl.queue(iso="ERCOT", status="active")
 print(queue.head())
 ```
 
-## Get fuel mix for all 7 ISOs in one pass
+### Get fuel mix for all 7 ISOs in one pass
 
 ```python
 from kardashev import Client
 
 kl = Client()
 mixes = {iso: kl.fuel_mix(iso=iso) for iso in ["CAISO", "ERCOT", "MISO", "NYISO", "ISONE", "SPP", "PJM"]}
+```
+
+## JavaScript / TypeScript
+
+Runnable scripts live in [`kardashev-js`](https://github.com/kardashev-lab/kardashev-js) - all examples use the hosted API since there's no direct ISO scraper equivalent in JavaScript.
+
+### Carbon intensity across all ISOs
+
+```ts
+import { Client } from "@kardashev-labs/kardashev";
+
+const kl = new Client();
+console.log(await kl.carbonLatest());
+```
+
+### LMP map nodes
+
+```ts
+import { Client } from "@kardashev-labs/kardashev";
+
+const kl = new Client();
+const nodes = await kl.lmpMap("PJM", "RT");
+console.log(nodes.slice(0, 5));
+```
+
+### Interconnection queue
+
+```ts
+import { Client } from "@kardashev-labs/kardashev";
+
+const kl = new Client();
+const queue = await kl.queue({ iso: "ERCOT", status: "active" });
+console.log(queue.slice(0, 5));
+```
+
+### Get fuel mix for all 7 ISOs in one pass
+
+```ts
+import { Client } from "@kardashev-labs/kardashev";
+
+const kl = new Client();
+const isos = ["CAISO", "ERCOT", "MISO", "NYISO", "ISONE", "SPP", "PJM"];
+const mixes = Object.fromEntries(
+  await Promise.all(isos.map(async (iso) => [iso, await kl.fuelMix(iso)]))
+);
 ```

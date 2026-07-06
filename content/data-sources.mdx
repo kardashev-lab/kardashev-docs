@@ -4,9 +4,11 @@ title: Data Sources
 
 # Data sources and refresh cadence
 
-## Direct ISO access (no API key)
+This page covers where the data comes from and how often it refreshes, regardless of which client library you use - the underlying sources and cadence are identical for Python and JavaScript.
 
-The `CAISO`, `ERCOT`, `MISO`, `NYISO`, `ISONE`, `SPP`, and `PJM` classes fetch directly from each grid operator's own public data feed at call time - there is no caching layer, so freshness matches the ISO's own publishing cadence.
+## Direct ISO access (Python only, no API key)
+
+The `CAISO`, `ERCOT`, `MISO`, `NYISO`, `ISONE`, `SPP`, and `PJM` classes fetch directly from each grid operator's own public data feed at call time - there is no caching layer, so freshness matches the ISO's own publishing cadence. This layer only exists in the Python client.
 
 | ISO | Source | Auth |
 |---|---|---|

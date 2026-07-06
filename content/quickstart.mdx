@@ -4,7 +4,9 @@ title: Quickstart
 
 # Quickstart
 
-## Install
+## Python
+
+### Install
 
 ```bash
 pip install kardashev
@@ -12,7 +14,7 @@ pip install kardashev
 
 Requires Python 3.9+.
 
-## Direct ISO access (no API key)
+### Direct ISO access (no API key)
 
 ```python
 from kardashev import CAISO, ERCOT, MISO, NYISO, ISONE, SPP
@@ -24,7 +26,7 @@ df = caiso.get_lmp(market="RT")     # real-time LMP
 df = caiso.get_curtailment()        # solar + wind curtailment
 ```
 
-## Hosted API (all 7 ISOs, normalized)
+### Hosted API (all 7 ISOs, normalized)
 
 ```python
 from kardashev import Client
@@ -37,4 +39,29 @@ prices = kl.lmp(iso="MISO", market="RT", limit=50)
 queue = kl.queue(iso="PJM")
 ```
 
-See [Supported ISOs](/supported-isos) for which datasets are available per ISO, and [API Reference](/api-reference) for the full method list.
+## JavaScript / TypeScript
+
+### Install
+
+```bash
+npm install @kardashev-labs/kardashev
+```
+
+Requires Node.js 18+ (uses the built-in `fetch`). Also works in browser/edge runtimes.
+
+### Hosted API (all 7 ISOs, normalized)
+
+```ts
+import { Client } from "@kardashev-labs/kardashev";
+
+const kl = new Client();
+
+const fuel = await kl.fuelMix("CAISO");
+const carbon = await kl.carbon("ERCOT");
+const prices = await kl.lmp("MISO", { market: "RT", limit: 50 });
+const queue = await kl.queue({ iso: "PJM" });
+```
+
+There is no direct no-key ISO scraper in the JavaScript client today - only the hosted API. Python has both. See [Supported ISOs](/supported-isos) for the full breakdown.
+
+See [API Reference](/api-reference) for the full method list in both languages.

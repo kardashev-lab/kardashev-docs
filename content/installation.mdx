@@ -4,13 +4,15 @@ title: Installation
 
 # Installation
 
+## Python
+
 ```bash
 pip install kardashev
 ```
 
 Requires Python 3.9+. Core dependencies: `httpx`, `requests`, `pandas`, `numpy`, `pytz`, `openpyxl`, `lxml`.
 
-## Optional environment variables
+### Optional environment variables
 
 Only needed if you use the direct `ISONE` or `PJM` classes for LMP data:
 
@@ -24,9 +26,26 @@ export PJM_PASSWORD=...
 
 Both are free accounts with the respective ISO. No credentials are required for any other dataset or ISO.
 
-## Verify the install
+### Verify the install
 
 ```python
 import kardashev
 print(kardashev.__version__)
+```
+
+## JavaScript / TypeScript
+
+```bash
+npm install @kardashev-labs/kardashev
+```
+
+Requires Node.js 18+. No optional dependencies, no environment variables - the JS client only talks to the hosted API, which needs no credentials.
+
+### Verify the install
+
+```ts
+import { Client } from "@kardashev-labs/kardashev";
+
+const kl = new Client();
+console.log(await kl.carbonLatest());
 ```

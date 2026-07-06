@@ -4,7 +4,9 @@ title: Supported ISOs
 
 # Supported ISOs
 
-## Direct ISO access (no API key, unless noted)
+## Direct ISO access (Python only, no API key unless noted)
+
+There is no direct ISO scraper in the JavaScript client - this section applies to Python's `CAISO`/`ERCOT`/etc. classes only.
 
 | ISO | Fuel mix | Load | Load forecast | LMP | Curtailment | Interconnection queue | Auth |
 |---|---|---|---|---|---|---|---|
@@ -20,8 +22,10 @@ ERCOT also exposes `get_wind_generation()`, `get_solar_generation()`, and `get_a
 
 This table is generated from the actual method inventory on each ISO class - see [`coverage.yaml`](https://github.com/kardashev-lab/kardashev-py/blob/main/coverage.yaml) in the source repo, which is the source of truth.
 
-## Hosted API (`Client`)
+## Hosted API (`Client`, Python and JavaScript)
 
-The hosted API normalizes coverage across all 7 ISOs for `fuel_mix`, `carbon`, `lmp`, `lmp_map`, `lmp_hubs`, `load`, `load_forecast`, `generation`, `curtailment`, `interchange`, `ancillary`, `outages`, `emissions`, `hydro`, `solar`, and `queue`, plus non-ISO datasets (`nat_gas`, `weather`, `nuclear_status`, `commodities`, `carbon_markets`).
+The hosted API normalizes coverage across all 7 ISOs for fuel mix, carbon, LMP, load, curtailment, interchange, ancillary services, emissions, and interconnection queue, plus generation/hydro/solar sub-resources (wind-solar forecast, battery, reservoirs, irradiance) and non-ISO datasets (natural gas, weather, nuclear, commodities, carbon markets). Method names are identical in shape between Python (`snake_case`) and JavaScript (`camelCase`) - see [API Reference](/api-reference) for the full method list in both.
 
 Interconnection queue coverage on the hosted API's daily-refresh job currently spans NYISO, PJM, and ISO-NE; not all 7 ISOs publish queue data on the same cadence. See [Data Sources](/data-sources) for exact refresh cadence per dataset.
+
+Two endpoints (`outages()`, `commodities_coal()`/`commoditiesCoal()`, `commodities_power_burn()`/`commoditiesPowerBurn()`) currently return HTTP 500 from the hosted API in both languages - a backend issue, not specific to either client.
