@@ -1,0 +1,72 @@
+---
+title: Examples
+---
+
+# Examples
+
+Runnable scripts live in [`examples/`](https://github.com/kardashev-lab/kardashev-py/tree/main/examples) in the source repo.
+
+## Direct ISO fuel mix
+
+```python
+from kardashev import CAISO, ERCOT
+
+caiso = CAISO()
+print(caiso.get_fuel_mix().tail())
+
+ercot = ERCOT()
+print(ercot.get_fuel_mix().tail())
+```
+
+## Direct ISO LMP
+
+```python
+from kardashev import CAISO, ERCOT, MISO
+
+caiso = CAISO()
+print(caiso.get_lmp(market="RT", node="TH_SP15_GEN-APND"))
+
+ercot = ERCOT()
+print(ercot.get_lmp(market="DA"))
+
+miso = MISO()
+print(miso.get_lmp(market="RT"))
+```
+
+## Carbon intensity across all ISOs
+
+```python
+from kardashev import Client
+
+kl = Client()
+print(kl.carbon_latest())
+```
+
+## LMP map nodes
+
+```python
+from kardashev import Client
+
+kl = Client()
+nodes = kl.lmp_map(iso="PJM", market="RT")
+print(nodes.head())
+```
+
+## Interconnection queue
+
+```python
+from kardashev import Client
+
+kl = Client()
+queue = kl.queue(iso="ERCOT", status="active")
+print(queue.head())
+```
+
+## Get fuel mix for all 7 ISOs in one pass
+
+```python
+from kardashev import Client
+
+kl = Client()
+mixes = {iso: kl.fuel_mix(iso=iso) for iso in ["CAISO", "ERCOT", "MISO", "NYISO", "ISONE", "SPP", "PJM"]}
+```

@@ -1,0 +1,40 @@
+---
+title: Quickstart
+---
+
+# Quickstart
+
+## Install
+
+```bash
+pip install kardashev
+```
+
+Requires Python 3.9+.
+
+## Direct ISO access (no API key)
+
+```python
+from kardashev import CAISO, ERCOT, MISO, NYISO, ISONE, SPP
+
+caiso = CAISO()
+df = caiso.get_fuel_mix()           # live generation by fuel type
+df = caiso.get_load()               # actual grid load
+df = caiso.get_lmp(market="RT")     # real-time LMP
+df = caiso.get_curtailment()        # solar + wind curtailment
+```
+
+## Hosted API (all 7 ISOs, normalized)
+
+```python
+from kardashev import Client
+
+kl = Client()
+
+fuel = kl.fuel_mix(iso="CAISO")
+carbon = kl.carbon(iso="ERCOT")
+prices = kl.lmp(iso="MISO", market="RT", limit=50)
+queue = kl.queue(iso="PJM")
+```
+
+See [Supported ISOs](/supported-isos) for which datasets are available per ISO, and [API Reference](/api-reference) for the full method list.

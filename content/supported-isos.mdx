@@ -1,0 +1,27 @@
+---
+title: Supported ISOs
+---
+
+# Supported ISOs
+
+## Direct ISO access (no API key, unless noted)
+
+| ISO | Fuel mix | Load | Load forecast | LMP | Curtailment | Interconnection queue | Auth |
+|---|---|---|---|---|---|---|---|
+| CAISO | Yes | Yes | Yes | RT, DA | Yes | - | None |
+| ERCOT | Yes | - | Yes | RT, DA | - | - | None |
+| MISO | Yes | - | Yes | RT, DA | - | - | None |
+| NYISO | Yes | Yes | Yes | RT, DA | - | Yes | None |
+| ISO-NE | Yes | Yes | Yes | RT | - | Yes | LMP requires `ISONE_USERNAME` / `ISONE_PASSWORD` |
+| SPP | Yes | - | Yes | RTBM | Yes | - | None |
+| PJM | - | - | - | RT, DA | - | - | Requires `PJM_USERNAME` / `PJM_PASSWORD` (free DataMiner2 account) |
+
+ERCOT also exposes `get_wind_generation()`, `get_solar_generation()`, and `get_ancillary_services()`. CAISO also exposes `get_generator_outages()`. MISO also exposes `get_generator_outages()`.
+
+This table is generated from the actual method inventory on each ISO class - see [`coverage.yaml`](https://github.com/kardashev-lab/kardashev-py/blob/main/coverage.yaml) in the source repo, which is the source of truth.
+
+## Hosted API (`Client`)
+
+The hosted API normalizes coverage across all 7 ISOs for `fuel_mix`, `carbon`, `lmp`, `lmp_map`, `lmp_hubs`, `load`, `load_forecast`, `generation`, `curtailment`, `interchange`, `ancillary`, `outages`, `emissions`, `hydro`, `solar`, and `queue`, plus non-ISO datasets (`nat_gas`, `weather`, `nuclear_status`, `commodities`, `carbon_markets`).
+
+Interconnection queue coverage on the hosted API's daily-refresh job currently spans NYISO, PJM, and ISO-NE; not all 7 ISOs publish queue data on the same cadence. See [Data Sources](/data-sources) for exact refresh cadence per dataset.

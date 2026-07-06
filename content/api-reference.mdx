@@ -1,0 +1,71 @@
+---
+title: API Reference
+---
+
+# API Reference
+
+## `Client` (hosted API)
+
+```python
+from kardashev import Client
+
+kl = Client(base_url="https://data.kardashevlabs.org", timeout=30.0)
+```
+
+| Method | Description |
+|---|---|
+| `fuel_mix(iso)` | Generation by fuel type |
+| `carbon(iso)` | Carbon intensity (lbs CO₂/MWh) |
+| `carbon_latest()` | Latest carbon intensity for all ISOs |
+| `lmp(iso, market, node_id, limit)` | LMP price history |
+| `lmp_map(iso, market)` | All nodes with latest price + coordinates |
+| `lmp_hubs(iso)` | Hub/zone node list |
+| `load(iso)` | Actual grid load |
+| `load_forecast(iso)` | Load forecast |
+| `generation(iso)` | Generation by unit type |
+| `curtailment(iso)` | Renewable curtailment |
+| `interchange(iso)` | Tie-line power flows |
+| `nat_gas(hub)` | Natural gas spot prices |
+| `nat_gas_storage()` | EIA weekly storage report |
+| `weather(city)` | Weather observations |
+| `outages(iso)` | Generator outage reports |
+| `ancillary(iso, market)` | Ancillary service prices |
+| `nuclear_status()` | Nuclear plant capacity factors |
+| `emissions(iso)` | SO₂/NOₓ emission rates |
+| `hydro(iso)` | Hydro generation |
+| `solar(iso)` | Solar generation |
+| `queue(iso)` | Interconnection queue |
+| `commodities()` | Power/gas commodity prices |
+| `carbon_markets()` | RGGI/WCI carbon market prices |
+
+## Direct ISO classes
+
+### `CAISO`
+
+`get_fuel_mix()`, `get_load()`, `get_lmp(market, node, start, end)`, `get_curtailment()`, `get_load_forecast(start, end)`, `get_generator_outages()`
+
+### `ERCOT`
+
+`get_fuel_mix()`, `get_fuel_mix_historical(start, end)`, `get_wind_generation()`, `get_solar_generation()`, `get_load_forecast()`, `get_lmp(market, date)`, `get_ancillary_services()`
+
+### `MISO`
+
+`get_fuel_mix()`, `get_fuel_mix_today()`, `get_load_forecast(date)`, `get_lmp(market, date)`, `get_generator_outages(date)`
+
+### `NYISO`
+
+`get_fuel_mix(date)`, `get_load(date)`, `get_load_forecast(date)`, `get_lmp(market, date)`, `get_interconnection_queue()`
+
+### `ISONE`
+
+`get_fuel_mix(date)`, `get_load(start, end)`, `get_load_forecast(start, end)`, `get_lmp(market, location, ...)` (requires `ISONE_USERNAME` / `ISONE_PASSWORD`), `get_interconnection_queue()`
+
+### `SPP`
+
+`get_fuel_mix()`, `get_fuel_mix_365()`, `get_lmp()`, `get_load_forecast(date)`, `get_curtailment(date)`
+
+### `PJM`
+
+`get_lmp(market, node_id, start, end)` (requires `PJM_USERNAME` / `PJM_PASSWORD`)
+
+See [Supported ISOs](/supported-isos) for a coverage matrix, and [Examples](/examples) for runnable scripts.

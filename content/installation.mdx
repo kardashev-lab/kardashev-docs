@@ -1,0 +1,32 @@
+---
+title: Installation
+---
+
+# Installation
+
+```bash
+pip install kardashev
+```
+
+Requires Python 3.9+. Core dependencies: `httpx`, `requests`, `pandas`, `numpy`, `pytz`, `openpyxl`, `lxml`.
+
+## Optional environment variables
+
+Only needed if you use the direct `ISONE` or `PJM` classes for LMP data:
+
+```bash
+export ISONE_USERNAME=...
+export ISONE_PASSWORD=...
+
+export PJM_USERNAME=...
+export PJM_PASSWORD=...
+```
+
+Both are free accounts with the respective ISO. No credentials are required for any other dataset or ISO.
+
+## Verify the install
+
+```python
+import kardashev
+print(kardashev.__version__)
+```

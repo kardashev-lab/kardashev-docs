@@ -1,0 +1,26 @@
+---
+title: kardashev
+---
+
+# kardashev
+
+Free, open-source Python client for US ISO/RTO energy data: LMP, load, fuel mix, carbon intensity, curtailment, and interconnection queues across CAISO, ERCOT, MISO, NYISO, ISO-NE, PJM, and SPP. No API key required.
+
+```bash
+pip install kardashev
+```
+
+```python
+from kardashev import CAISO
+
+caiso = CAISO()
+df = caiso.get_fuel_mix()
+```
+
+## Two ways to use it
+
+**Direct ISO access** — `CAISO`, `ERCOT`, `MISO`, `NYISO`, `ISONE`, `SPP`, `PJM` classes scrape each grid operator's own public feed directly. No API key for 6 of 7 (ISO-NE and PJM require a free account with the ISO for LMP only — see [Supported ISOs](/supported-isos)).
+
+**Hosted API** — `Client` talks to the free Kardashev Labs API (`data.kardashevlabs.org`) for carbon intensity, LMP history, interconnection queues, and 20+ more normalized endpoints across all 7 ISOs.
+
+Start with the [Quickstart](/quickstart), or jump to the [API reference](/api-reference).
