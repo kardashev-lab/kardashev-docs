@@ -36,7 +36,11 @@ export default async function RootLayout({
       <Head />
       <body>
         <Layout
-          banner={<Banner storageKey="kardashev-docs">kardashev 0.2.5 is live on PyPI</Banner>}
+          banner={
+            <Banner storageKey="kardashev-docs-v2">
+              kardashev is available for Python (PyPI) and JavaScript/TypeScript (npm)
+            </Banner>
+          }
           navbar={navbar}
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/kardashev-lab/kardashev-docs/blob/main"
