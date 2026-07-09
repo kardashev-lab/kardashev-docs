@@ -80,7 +80,7 @@ Runnable scripts live in [`kardashev-js`](https://github.com/kardashev-lab/karda
 ### Carbon intensity across all ISOs
 
 ```ts
-import { Client } from "@kardashev-labs/kardashev";
+import { Client } from "kardashev";
 
 const kl = new Client();
 console.log(await kl.carbonLatest());
@@ -89,7 +89,7 @@ console.log(await kl.carbonLatest());
 ### LMP map nodes
 
 ```ts
-import { Client } from "@kardashev-labs/kardashev";
+import { Client } from "kardashev";
 
 const kl = new Client();
 const nodes = await kl.lmpMap("PJM", "RT");
@@ -99,7 +99,7 @@ console.log(nodes.slice(0, 5));
 ### Interconnection queue
 
 ```ts
-import { Client } from "@kardashev-labs/kardashev";
+import { Client } from "kardashev";
 
 const kl = new Client();
 const queue = await kl.queue({ iso: "ERCOT", status: "active" });
@@ -109,7 +109,7 @@ console.log(queue.slice(0, 5));
 ### Get fuel mix for all 7 ISOs in one pass
 
 ```ts
-import { Client } from "@kardashev-labs/kardashev";
+import { Client } from "kardashev";
 
 const kl = new Client();
 const isos = ["CAISO", "ERCOT", "MISO", "NYISO", "ISONE", "SPP", "PJM"];

@@ -36,7 +36,7 @@ print(kardashev.__version__)
 ## JavaScript / TypeScript
 
 ```bash
-npm install @kardashev-labs/kardashev
+npm install kardashev
 ```
 
 Requires Node.js 18+. No optional dependencies, no environment variables - the JS client only talks to the hosted API, which needs no credentials.
@@ -44,7 +44,7 @@ Requires Node.js 18+. No optional dependencies, no environment variables - the J
 ### Verify the install
 
 ```ts
-import { Client } from "@kardashev-labs/kardashev";
+import { Client } from "kardashev";
 
 const kl = new Client();
 console.log(await kl.carbonLatest());
