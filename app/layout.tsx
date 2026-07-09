@@ -5,12 +5,36 @@ import "nextra-theme-docs/style.css";
 
 export const metadata = {
   title: {
-    default: "kardashev docs",
+    default: "kardashev docs — free Python & JS client for US ISO energy data",
     template: "%s - kardashev docs",
   },
   description:
-    "Documentation for kardashev: a free, open-source Python client for US ISO/RTO energy data.",
+    "Documentation for kardashev: a free, open-source Python and JavaScript/TypeScript client for US ISO/RTO energy data (CAISO, ERCOT, MISO, NYISO, ISO-NE, SPP, PJM). No API key required. A free alternative to gridstatus.",
   metadataBase: new URL("https://docs.kardashevlabs.org"),
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  name: "kardashev",
+  description:
+    "Free, open-source Python and JavaScript/TypeScript client for US ISO/RTO energy data — CAISO, ERCOT, MISO, NYISO, ISO-NE, SPP, and PJM. No API key required.",
+  codeRepository: "https://github.com/kardashev-lab/kardashev-py",
+  programmingLanguage: ["Python", "TypeScript", "JavaScript"],
+  license: "https://opensource.org/licenses/MIT",
+  url: "https://docs.kardashevlabs.org",
+  author: {
+    "@type": "Organization",
+    name: "Kardashev Labs",
+    url: "https://kardashevlabs.org",
+  },
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  keywords:
+    "energy data, ISO, RTO, CAISO, ERCOT, MISO, NYISO, ISO-NE, SPP, PJM, LMP, wholesale electricity, gridstatus alternative, power grid data API",
 };
 
 const navbar = (
@@ -33,7 +57,12 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
-      <Head />
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </Head>
       <body>
         <Layout
           banner={
