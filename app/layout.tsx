@@ -5,12 +5,29 @@ import "nextra-theme-docs/style.css";
 
 export const metadata = {
   title: {
-    default: "kardashev docs — free Python & JS client for US ISO energy data",
+    default: "kardashev docs: free Python & JS client for US ISO energy data",
     template: "%s - kardashev docs",
   },
   description:
     "Documentation for kardashev: a free, open-source Python and JavaScript/TypeScript client for US ISO/RTO energy data (CAISO, ERCOT, MISO, NYISO, ISO-NE, SPP, PJM). No API key required. A free alternative to gridstatus.",
   metadataBase: new URL("https://docs.kardashevlabs.org"),
+  alternates: {
+    canonical: "https://docs.kardashevlabs.org",
+  },
+  openGraph: {
+    title: "kardashev docs | Kardashev Labs",
+    description:
+      "Free Python and JS/TS client for US ISO/RTO energy data. No API key required.",
+    url: "https://docs.kardashevlabs.org",
+    siteName: "Kardashev Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "kardashev docs | Kardashev Labs",
+    description:
+      "Free Python and JS/TS client for US ISO/RTO energy data. No API key required.",
+  },
 };
 
 const jsonLd = {
@@ -18,7 +35,7 @@ const jsonLd = {
   "@type": "SoftwareSourceCode",
   name: "kardashev",
   description:
-    "Free, open-source Python and JavaScript/TypeScript client for US ISO/RTO energy data — CAISO, ERCOT, MISO, NYISO, ISO-NE, SPP, and PJM. No API key required.",
+    "Free, open-source Python and JavaScript/TypeScript client for US ISO/RTO energy data: CAISO, ERCOT, MISO, NYISO, ISO-NE, SPP, and PJM. No API key required.",
   codeRepository: "https://github.com/kardashev-lab/kardashev-py",
   programmingLanguage: ["Python", "TypeScript", "JavaScript"],
   license: "https://opensource.org/licenses/MIT",
@@ -46,7 +63,12 @@ const navbar = (
 
 const footer = (
   <Footer>
-    MIT {new Date().getFullYear()} © Kardashev Labs
+    MIT {new Date().getFullYear()} ©{" "}
+    <a href="https://kardashevlabs.org">Kardashev Labs</a>
+    {" · "}
+    <a href="https://pypi.org/project/kardashev/">PyPI</a>
+    {" · "}
+    <a href="https://github.com/kardashev-lab">GitHub</a>
   </Footer>
 );
 

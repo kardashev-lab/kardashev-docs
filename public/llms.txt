@@ -1,32 +1,37 @@
 # kardashev
 
-> Free, open-source Python and JavaScript/TypeScript client for US ISO/RTO energy data. Direct access to CAISO, ERCOT, MISO, NYISO, ISO-NE, SPP, and PJM. No API key required for 6 of 7 ISOs. A free alternative to gridstatus, with JavaScript/TypeScript support gridstatus does not have.
+> Free Python and JavaScript/TypeScript client for US ISO/RTO energy data. Direct access to CAISO, ERCOT, MISO, NYISO, ISO-NE, SPP, and PJM. No API key for 6 of 7 ISOs. A free alternative to gridstatus, with JS/TS support gridstatus does not ship.
 
-kardashev provides two ways to get US grid data: direct scrapers that hit each ISO's own public feed (no API key, no rate limits, no third-party dependency), and a free hosted API (data.kardashevlabs.org) for normalized cross-ISO data — locational marginal prices (LMP), system load, fuel mix, carbon intensity, curtailment, and interconnection queues.
+Two modes: direct scrapers against each ISO's public feed, and a hosted API at data.kardashevlabs.org for normalized LMP, load, fuel mix, carbon, curtailment, and queues.
 
 Install:
+
 - Python: `pip install kardashev`
-- JavaScript/TypeScript: `npm install kardashev`
+- JS/TS: `npm install kardashev`
 
 ## Docs
 
-- [Quickstart](https://docs.kardashevlabs.org/quickstart): install and first API calls in both languages
-- [Installation](https://docs.kardashevlabs.org/installation): setup for pip and npm
-- [Supported ISOs](https://docs.kardashevlabs.org/supported-isos): CAISO, ERCOT, MISO, NYISO, ISO-NE, SPP, PJM coverage detail
-- [API Reference](https://docs.kardashevlabs.org/api-reference): full method reference for both clients
-- [Examples](https://docs.kardashevlabs.org/examples): LMP, fuel mix, carbon intensity, curtailment, interconnection queue code samples
-- [kardashev vs gridstatus](https://docs.kardashevlabs.org/comparison): feature and dependency comparison
-- [Data Sources](https://docs.kardashevlabs.org/data-sources): upstream feeds and refresh cadence per ISO
-- [Changelog](https://docs.kardashevlabs.org/changelog)
-- [Roadmap](https://docs.kardashevlabs.org/roadmap)
+- https://docs.kardashevlabs.org/quickstart
+- https://docs.kardashevlabs.org/installation
+- https://docs.kardashevlabs.org/supported-isos
+- https://docs.kardashevlabs.org/api-reference
+- https://docs.kardashevlabs.org/examples
+- https://docs.kardashevlabs.org/comparison
+- https://docs.kardashevlabs.org/data-sources
+- https://docs.kardashevlabs.org/changelog
+- https://docs.kardashevlabs.org/roadmap
 
-## Source and packages
+## Packages
 
-- [Python source (GitHub)](https://github.com/kardashev-lab/kardashev-py)
-- [JavaScript/TypeScript source (GitHub)](https://github.com/kardashev-lab/kardashev-js)
-- [PyPI package](https://pypi.org/project/kardashev/)
-- [npm package](https://www.npmjs.com/package/kardashev)
+- https://github.com/kardashev-lab/kardashev-py
+- https://github.com/kardashev-lab/kardashev-js
+- https://pypi.org/project/kardashev/
+- https://www.npmjs.com/package/kardashev
 
-## About
+## Related tools
 
-Built by Kardashev Labs (https://kardashevlabs.org), an independent energy data infrastructure project. MIT licensed.
+- https://kardashevlabs.org
+- https://data.kardashevlabs.org
+- Live dashboards listed from the main site llms.txt: https://kardashevlabs.org/llms.txt
+
+MIT. Built by Kardashev Labs.

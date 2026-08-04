@@ -5,7 +5,7 @@ import nextra from "nextra";
 const withNextra = nextra({});
 
 const nextConfig: NextConfig = {
-  output: "standalone",
+
   outputFileTracingRoot: path.join(__dirname),
 };
 
