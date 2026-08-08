@@ -84,7 +84,7 @@ Note: `outages()` (unit-level generator outages) and `commodities_coal()`/`commo
 
 #### `PJM`
 
-`get_lmp(market, node_id, start, end)` (requires `PJM_USERNAME` / `PJM_PASSWORD`)
+`get_lmp(market, node_id, start, end)` - still routes through legacy DataMiner2 hourly CSV feeds (`PJM_USERNAME` / `PJM_PASSWORD`), which PJM decommissioned in 2026-07. Prefer `Client.lmp(iso="PJM", ...)` until the public class is rewired to `api.pjm.com`. Package helpers for instantaneous load and unverified 5-min RT LMP already talk to `api.pjm.com` (public subscription key / optional `PJM_API_KEY`).
 
 ## JavaScript / TypeScript
 

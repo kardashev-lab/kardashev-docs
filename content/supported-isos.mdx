@@ -17,7 +17,7 @@ There is no direct ISO scraper in the JavaScript client - this section applies t
 | NYISO | Yes | Yes | Yes | RT, DA | - | Yes | None |
 | ISO-NE | Yes | Yes | Yes | RT | - | Yes | LMP requires `ISONE_USERNAME` / `ISONE_PASSWORD` |
 | SPP | Yes | - | Yes | RTBM | Yes | - | None |
-| PJM | - | - | - | RT, DA | - | - | Requires `PJM_USERNAME` / `PJM_PASSWORD` (free DataMiner2 account) |
+| PJM | - | - | - | RT, DA (legacy) | - | - | Legacy `get_lmp()` needs `PJM_USERNAME` / `PJM_PASSWORD`; DataMiner2 CSV feeds are dead as of 2026-07 (see [Roadmap](/roadmap)) |
 
 ERCOT also exposes `get_wind_generation()`, `get_solar_generation()`, and `get_ancillary_services()`. CAISO also exposes `get_generator_outages()`. MISO also exposes `get_generator_outages()`.
 

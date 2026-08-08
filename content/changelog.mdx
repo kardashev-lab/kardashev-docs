@@ -9,6 +9,19 @@ description: Version history for the kardashev Python (PyPI) and JavaScript/Type
 
 Full changelog lives in the source repo: [CHANGELOG.md](https://github.com/kardashev-lab/kardashev-py/blob/main/CHANGELOG.md).
 
+### 0.3.2
+
+Bug fix: `CAISO.get_fuel_mix()` for the live `current/fuelsource.csv` stamped bare `HH:MM` times with the machine/UTC calendar date. On UTC hosts, after 17:00 PT evening rows landed on the next Pacific day, so battery/fuel-mix evening values never updated for the real day.
+
+- Always attach the US/Pacific calendar date before localizing (Pacific today for `current/`, explicit target date for history).
+- Also in this release: add `api.pjm.com` helpers for instantaneous load and unverified 5-min RT LMP (public subscription key / optional `PJM_API_KEY`). The public `PJM.get_lmp()` path still targets legacy DataMiner2 CSV feeds, which PJM decommissioned in 2026-07 - see [Roadmap](/roadmap).
+
+### 0.3.1
+
+Bug fix: ERCOT retired the separate `wind-power` / `solar-power` dashboard endpoints and merged them into `combine-wind-solar` (hourly, not 15-min).
+
+- Fix `ERCOT.get_wind_generation()` / `get_solar_generation()` to use the combined endpoint and reshape into the same `timestamp` / `genMW` / forecast columns as before (no caller-facing API change).
+
 ### 0.3.0
 
 Bug fix release: six `Client` methods were silently calling endpoints that don't exist on the hosted API (always returned 404). Fixed by pointing them at the real endpoints, which required splitting a few into named sub-methods since the API doesn't expose a single unified endpoint for these datasets.
@@ -58,6 +71,10 @@ Bug fix release: six `Client` methods were silently calling endpoints that don't
 ## JavaScript / TypeScript (`kardashev`)
 
 Full changelog lives in the source repo: [CHANGELOG.md](https://github.com/kardashev-lab/kardashev-js/blob/main/CHANGELOG.md).
+
+### 0.1.1
+
+- Publish under the unscoped npm name `kardashev` (was briefly `@kardashev-labs/kardashev`)
 
 ### 0.1.0
 

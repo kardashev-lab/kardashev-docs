@@ -8,8 +8,8 @@ description: What's next for kardashev — planned ISOs, endpoints, and features
 kardashev is actively maintained by a single developer at Kardashev Labs. There's no fixed timeline, but the known open gaps are:
 
 - **Interconnection queue coverage** - the hosted API currently refreshes queue data daily for NYISO, PJM, and ISO-NE. CAISO, ERCOT, MISO, and SPP queue data is not yet on the same live pipeline.
-- **Direct-access parity (Python)** - `PJM` currently only exposes LMP directly (requires a free DataMiner2 account); fuel mix, load, and other PJM datasets are only available today through the hosted `Client`.
+- **Direct PJM class** - DataMiner2 CSV feeds (hourly RT/DA LMP) were decommissioned in 2026-07. `api.pjm.com` helpers for instantaneous load and unverified 5-min RT LMP ship in Python 0.3.2+, but the public `PJM.get_lmp()` method is not rewired yet. Use the hosted `Client` for PJM LMP in the meantime. Fuel mix and other PJM datasets remain hosted-API-only.
 - **No direct ISO scrapers in JavaScript** - `kardashev` only wraps the hosted API today. Whether to port the Python direct-access scrapers to JS is undecided; open an issue if this would be useful to you.
 - **Two backend 500s** - `outages()` and `commodities_coal()`/`commodities_power_burn()` (both languages) currently error server-side. Tracked as a `kardashev-data` issue, not a client bug.
 
-Track progress in the Changelog ([Python](/changelog#python-kardashev), [JavaScript](/changelog#javascript--typescript-kardashev-labskardashev)), or open an issue on [Python GitHub](https://github.com/kardashev-lab/kardashev-py/issues) or [JS GitHub](https://github.com/kardashev-lab/kardashev-js/issues).
+Track progress in the Changelog ([Python](/changelog#python-kardashev), [JavaScript](/changelog#javascript--typescript-kardashev)), or open an issue on [Python GitHub](https://github.com/kardashev-lab/kardashev-py/issues) or [JS GitHub](https://github.com/kardashev-lab/kardashev-js/issues).

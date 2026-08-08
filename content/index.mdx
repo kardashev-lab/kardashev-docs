@@ -31,7 +31,7 @@ const fuel = await kl.fuelMix("CAISO");
 
 ## Two ways to use it
 
-**Direct ISO access** (Python only) - `CAISO`, `ERCOT`, `MISO`, `NYISO`, `ISONE`, `SPP`, `PJM` classes scrape each grid operator's own public feed directly. No API key for 6 of 7 (ISO-NE and PJM require a free account with the ISO for LMP only - see [Supported ISOs](/supported-isos)).
+**Direct ISO access** (Python only) - `CAISO`, `ERCOT`, `MISO`, `NYISO`, `ISONE`, `SPP`, `PJM` classes scrape each grid operator's own public feed directly. No API key for most datasets; ISO-NE LMP needs a free ISO account, and direct PJM hourly LMP is currently broken pending a rewire off DataMiner2 (use the hosted `Client` for PJM LMP - see [Supported ISOs](/supported-isos)).
 
 **Hosted API** (Python and JavaScript) - `Client` talks to the free Kardashev Labs API (`data.kardashevlabs.org`) for carbon intensity, LMP history, interconnection queues, and 20+ more normalized endpoints across all 7 ISOs.
 

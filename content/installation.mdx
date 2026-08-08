@@ -15,17 +15,21 @@ Requires Python 3.9+. Core dependencies: `httpx`, `requests`, `pandas`, `numpy`,
 
 ### Optional environment variables
 
-Only needed if you use the direct `ISONE` or `PJM` classes for LMP data:
+Only needed for direct `ISONE` LMP (and the legacy PJM DataMiner2 CSV path, which is dead as of 2026-07):
 
 ```bash
 export ISONE_USERNAME=...
 export ISONE_PASSWORD=...
 
+# Legacy only - DataMiner2 CSV feeds are decommissioned
 export PJM_USERNAME=...
 export PJM_PASSWORD=...
+
+# Optional override for api.pjm.com (otherwise the public DataMiner2 UI subscription key is used)
+export PJM_API_KEY=...
 ```
 
-Both are free accounts with the respective ISO. No credentials are required for any other dataset or ISO.
+ISO-NE credentials are a free account with that ISO. No credentials are required for any other dataset or ISO. For PJM LMP today, prefer the hosted `Client` (see [Data Sources](/data-sources)).
 
 ### Verify the install
 
