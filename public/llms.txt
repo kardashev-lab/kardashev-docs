@@ -8,6 +8,7 @@ Install:
 
 - Python: `pip install kardashev`
 - JS/TS: `npm install kardashev`
+- MCP (agents): `npx -y kardashev-mcp`
 
 ## Docs
 
@@ -25,8 +26,11 @@ Install:
 
 - https://github.com/kardashev-lab/kardashev-py
 - https://github.com/kardashev-lab/kardashev-js
+- https://github.com/kardashev-lab/kardashev-mcp
 - https://pypi.org/project/kardashev/
 - https://www.npmjs.com/package/kardashev
+- https://www.npmjs.com/package/kardashev-mcp
+- MCP Registry: `io.github.kardashev-lab/kardashev-mcp`
 
 ## Related tools
 

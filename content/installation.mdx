@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: How to install kardashev via pip (Python) or npm (JavaScript/TypeScript) for free US ISO/RTO energy data access, no API key required.
+description: How to install kardashev via pip (Python), npm (JavaScript/TypeScript), or MCP for AI agents — free US ISO/RTO energy data, no API key required.
 ---
 
 # Installation
@@ -54,3 +54,28 @@ import { Client } from "kardashev";
 const kl = new Client();
 console.log(await kl.carbonLatest());
 ```
+
+## MCP (AI agents)
+
+```bash
+npx -y kardashev-mcp
+```
+
+Stdio [Model Context Protocol](https://modelcontextprotocol.io) server for Cursor, Claude Code, and other MCP clients. Wraps the hosted API — LMP, carbon, load, curtailment, interconnection queues, ERCOT large loads, and the live ERCOT RT−DA spread forecast + track record. No API key.
+
+Cursor (`~/.cursor/mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "kardashev": {
+      "command": "npx",
+      "args": ["-y", "kardashev-mcp"]
+    }
+  }
+}
+```
+
+Claude Code: `claude mcp add kardashev -- npx -y kardashev-mcp`.
+
+Source: [kardashev-lab/kardashev-mcp](https://github.com/kardashev-lab/kardashev-mcp). Registry: `io.github.kardashev-lab/kardashev-mcp`.
