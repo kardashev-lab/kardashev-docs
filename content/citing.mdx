@@ -1,0 +1,33 @@
+---
+title: Cite
+description: How to cite the kardashev software. This is a software citation, not a frozen live-API dataset.
+---
+
+# Cite
+
+Cite **kardashev** if you used the Python package, the JS/TS client, or the hosted API client. Cite the ISO/RTO (and EIA where relevant) for the underlying observations.
+
+This is a **software** citation. It is not a DOI for a frozen US ISO dataset. Production LMP on `data.kardashevlabs.org` is a rolling window. Do not write "data obtained from Kardashev Labs" as if the live API were an archival record.
+
+## Software
+
+Mathore, A. (2026). *kardashev: Open US ISO/RTO energy data library* (Version 0.3.2) [Computer software]. Kardashev Labs. https://github.com/kardashev-lab/kardashev-py
+
+```bibtex
+@software{Mathore_kardashev_2026,
+  author  = {Mathore, Ashutosh},
+  title   = {kardashev: Open US ISO/RTO energy data library},
+  year    = {2026},
+  version = {0.3.2},
+  url     = {https://github.com/kardashev-lab/kardashev-py},
+  license = {MIT}
+}
+```
+
+GitHub renders the same metadata from [`CITATION.cff`](https://github.com/kardashev-lab/kardashev-py/blob/main/CITATION.cff) on the Python repository (Cite this repository). A Zenodo software DOI will be added there when minted.
+
+## What not to cite this as
+
+- Not an official ISO study, queue, or forecast.
+- Not a substitute for citing CAISO, ERCOT, MISO, NYISO, ISO-NE, SPP, PJM, or EIA.
+- Not a citable snapshot of live LMP history beyond what the hosted API actually retains.

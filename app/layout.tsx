@@ -66,6 +66,8 @@ const footer = (
     MIT {new Date().getFullYear()} ©{" "}
     <a href="https://kardashevlabs.org">Kardashev Labs</a>
     {" · "}
+    <a href="/citing">Cite</a>
+    {" · "}
     <a href="https://pypi.org/project/kardashev/">PyPI</a>
     {" · "}
     <a href="https://github.com/kardashev-lab">GitHub</a>

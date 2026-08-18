@@ -6,6 +6,7 @@ export default {
   "api-reference": "API Reference",
   examples: "Examples",
   "data-sources": "Data Sources",
+  citing: "Cite",
   comparison: "kardashev vs gridstatus",
   changelog: "Changelog",
   roadmap: "Roadmap",
